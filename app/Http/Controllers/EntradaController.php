@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entrada;
+use App\Models\Proyeccion;
+use App\Models\Sala;
 use Illuminate\Http\Request;
 
 class EntradaController extends Controller
@@ -12,7 +14,9 @@ class EntradaController extends Controller
      */
     public function index()
     {
-        //
+        return view('entradas.index', [
+            'entradas' => Entrada::all(),
+        ]);
     }
 
     /**
@@ -20,7 +24,9 @@ class EntradaController extends Controller
      */
     public function create()
     {
-        //
+        return view('entradas.create', [
+            'proyecciones' => Proyeccion::with('salas')->get(),
+        ]);
     }
 
     /**
@@ -61,5 +67,12 @@ class EntradaController extends Controller
     public function destroy(Entrada $entrada)
     {
         //
+    }
+
+    private function validar(REQUEST $request)
+    {
+        return $request->validate([
+            'titulo' => 'required|string|max:50',
+        ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Pelicula;
@@ -30,8 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// PELÍCULAS
 Route::resource('peliculas', PeliculaController::class);
 
-Route::get('/peliculas/{id}', PeliculaController::class, 'mostrarEntradas')->name('peliculas.entradas');
+Route::get('peliculas/{id}', [PeliculaController::class, 'mostrarEntradas'])->name('peliculas.entradas');
+
+// ENTRADAS
+Route::resource('entradas', EntradaController::class);
 
 require __DIR__.'/auth.php';

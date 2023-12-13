@@ -16,9 +16,9 @@ class Proyeccion extends Model
         return $this->belongsTo(Pelicula::class);
     }
 
-    public function salas(): HasMany
+    public function sala(): BelongsTo
     {
-        return $this->hasMany(Sala::class);
+        return $this->belongsTo(Sala::class);
     }
 
     public function entradas(): HasMany
