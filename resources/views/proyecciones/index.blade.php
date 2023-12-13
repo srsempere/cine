@@ -16,18 +16,18 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($entradas as $entrada)
+                @foreach ($proyecciones as $proyeccion)
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                         <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            {{ $entrada->proyeccion->pelicula->titulo }}
+                            {{ $proyeccion->pelicula->titulo }}
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            {{ $entrada->proyeccion->sala->numero }}
+                            {{ $proyeccion->sala->numero }}
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            <a href="{{ route('entradas.index') }}">
+                            <a href="{{ route('entradas.create') }}">
                                 <x-primary-button>
-                                    Ver más detalles
+                                    Comprar entrada
                                 </x-primary-button>
                             </a>
                         </td>

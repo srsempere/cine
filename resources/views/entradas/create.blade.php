@@ -7,12 +7,15 @@
             <select name='proyeccion__id' id='proyeccion__id' class="block mt-1 w-full">
                 @foreach ($proyecciones as $proyeccion)
                     <option value="{{ $proyeccion->id }}">{{ $proyeccion->pelicula->titulo }} -
-                        @if ($proyeccion->salas-)
-
+                        @if ($proyeccion->sala)
+                            {{ $proyeccion->sala->numero }} -
+                        @else
+                            Sala no asignada -
                         @endif
-                        {{ $proyeccion->sala->numero }} - {{ $proyeccion->fecha }} - {{ $proyeccion->hora }}</option>
+                        {{ $proyeccion->fecha }} - {{ $proyeccion->hora }}
+                    </option>
                 @endforeach
-            <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+                <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
         </div>
 
 

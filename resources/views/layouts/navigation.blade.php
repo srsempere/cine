@@ -12,18 +12,18 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('peliculas.index')" :active="request()->routeIs('pelicula')">
+                    <x-nav-link :href="route('peliculas.index')" :active="request()->routeIs('peliculas')">
                         {{ __('Películas') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('entradas.index')" :active="request()->routeIs('pelicula')">
+                    <x-nav-link :href="route('entradas.index')" :active="request()->routeIs('entradas')">
                         {{ __('Entradas') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link :href="route('proyecciones.index')" :active="request()->routeIs('proyecciones')">
+                        {{ __('Proyecciones') }}
                     </x-nav-link>
                 </div>
             </div>

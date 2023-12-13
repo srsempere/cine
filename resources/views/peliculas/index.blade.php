@@ -7,7 +7,7 @@
                     <th scope="col" class="px-6 py-3">
                         Nombre Película
                     </th>
-                    <th scope="col" class="px-6 py-3" colspan="2">
+                    <th scope="col" class="px-6 py-3" colspan="3">
                         Acción
                     </th>
                 </tr>

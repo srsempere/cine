@@ -15,7 +15,7 @@ class EntradaController extends Controller
     public function index()
     {
         return view('entradas.index', [
-            'entradas' => Entrada::all(),
+            'entradas' => Entrada::with('proyeccion.pelicula', 'proyeccion.sala')->get(),
         ]);
     }
 
@@ -24,9 +24,7 @@ class EntradaController extends Controller
      */
     public function create()
     {
-        return view('entradas.create', [
-            'proyecciones' => Proyeccion::with('salas')->get(),
-        ]);
+        //
     }
 
     /**

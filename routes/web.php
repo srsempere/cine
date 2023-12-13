@@ -3,6 +3,7 @@
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProyeccionController;
 use App\Models\Pelicula;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +39,8 @@ Route::get('peliculas/{id}', [PeliculaController::class, 'mostrarEntradas'])->na
 
 // ENTRADAS
 Route::resource('entradas', EntradaController::class);
+
+// PROYECCIONES
+Route::resource('proyecciones', ProyeccionController::class);
 
 require __DIR__.'/auth.php';

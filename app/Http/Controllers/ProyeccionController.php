@@ -12,7 +12,9 @@ class ProyeccionController extends Controller
      */
     public function index()
     {
-        //
+        return view('proyecciones.index', [
+            'proyecciones' => Proyeccion::with('pelicula', 'sala')->get(),
+        ]);
     }
 
     /**
