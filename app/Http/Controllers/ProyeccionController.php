@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Entrada;
 use App\Models\Proyeccion;
 use Illuminate\Http\Request;
 
@@ -22,15 +23,20 @@ class ProyeccionController extends Controller
      */
     public function create()
     {
-        //
+        return view('proyecciones.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) //TODO: Este se deberia de usar para el crud de proyección. Añadir posteriormente un comprarEntrada().
     {
-        //
+        // $validated = $this->validar($request);
+        // Entrada::create($validated);
+        // if ($validated) {
+        //     session()->flash('success', 'Entrada creada correctamente');
+        // }
+        // return redirect()->route('entradas.index');
     }
 
     /**
@@ -63,5 +69,12 @@ class ProyeccionController extends Controller
     public function destroy(Proyeccion $proyeccion)
     {
         //
+    }
+
+    private function validar(REQUEST $request)
+    {
+        return $request->validate([
+            'proyeccion_id' => 'required|int|exists:proyeccions,id',
+        ]);
     }
 }

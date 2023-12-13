@@ -1,32 +1,28 @@
 <x-app-layout>
-    <form method="POST" action="{{ route('entradas.store') }}">
+    <h1 class="m-8 text-3xl text-center text-blue-600 bg-yellow-100 p-4 rounded-lg shadow">¿Confirmar Compra de Entrada?</h1>
+    <form method="POST" action="{{ route('entradas.store') }}" class="m-8">
         @csrf
-        <!-- Lista de proyecciones -->
+
         <div>
             <x-input-label for="titulo" :value="'Nombre de la película'" />
-            <select name='proyeccion__id' id='proyeccion__id' class="block mt-1 w-full">
-                @foreach ($proyecciones as $proyeccion)
-                    <option value="{{ $proyeccion->id }}">{{ $proyeccion->pelicula->titulo }} -
-                        @if ($proyeccion->sala)
-                            {{ $proyeccion->sala->numero }} -
-                        @else
-                            Sala no asignada -
-                        @endif
-                        {{ $proyeccion->fecha }} - {{ $proyeccion->hora }}
-                    </option>
-                @endforeach
-                <x-input-error :messages="$errors->get('titulo')" class="mt-2" />
+            <x-text-input id="titulo" class="block mt-1 w-full" type="text" name="titulo" :value="$proyeccion->pelicula->titulo" readonly />
         </div>
 
+        <div>
+            <x-input-label for="sala" :value="'Número de sala'" />
+            <x-text-input id="sala" class="block mt-1 w-full" type="text" name="sala" :value="$proyeccion->sala->numero" readonly />
+        </div>
 
-        <div class="flex items-center justify-end mt-">
-            <a href="{{ route('peliculas.index') }}">
+        <input type="hidden" name="proyeccion_id" value="{{ $proyeccion->id }}">
+
+        <div class="flex items-center justify-end mt-4">
+            <a href="{{ route('proyecciones.index') }}">
                 <x-secondary-button class="m-4">
                     Volver
                 </x-secondary-button>
             </a>
-            <x-primary-button class="ms-4">
-                Insertar
+            <x-primary-button class="ms-4 bg-green-600">
+                Comprar Entrada
             </x-primary-button>
         </div>
     </form>

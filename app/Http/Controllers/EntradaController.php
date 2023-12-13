@@ -22,9 +22,13 @@ class EntradaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $proyeccion_id = $request->query('proyeccion_id');
+        $proyeccion = Proyeccion::with('pelicula', 'sala')->findOrFail($proyeccion_id);
+        return view('entradas.create', [
+            'proyeccion' => $proyeccion,
+        ]);
     }
 
     /**

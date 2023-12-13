@@ -25,8 +25,8 @@
                             {{ $proyeccion->sala->numero }}
                         </td>
                         <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            <a href="{{ route('entradas.create') }}">
-                                <x-primary-button>
+                            <a href="{{ route('entradas.create', ['proyeccion_id' => $proyeccion->id]) }}">
+                                <x-primary-button class="bg-green-600">
                                     Comprar entrada
                                 </x-primary-button>
                             </a>
