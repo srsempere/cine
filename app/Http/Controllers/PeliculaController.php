@@ -98,5 +98,12 @@ class PeliculaController extends Controller
         $totalEntradas = $pelicula->proyecciones->sum(function ($proyeccion) {
             return $proyeccion->entradas->count();
         });
+
+        // Retorna el título de la película y el total de entradas en formato JSON.
+        return response()->json([
+            'titulo' => $pelicula->titulo,
+            'totalEntradas' => $totalEntradas,
+        ]);
+
     }
 }

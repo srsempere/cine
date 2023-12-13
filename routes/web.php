@@ -32,6 +32,6 @@ Route::middleware('auth')->group(function () {
 
 Route::resource('peliculas', PeliculaController::class);
 
-
+Route::get('/peliculas/{id}', PeliculaController::class, 'mostrarEntradas')->name('peliculas.entradas');
 
 require __DIR__.'/auth.php';
