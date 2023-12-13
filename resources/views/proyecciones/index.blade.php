@@ -52,10 +52,10 @@
             </tbody>
         </table>
     </div>
-    {{-- <div class="flex justify-center">
-        <form action="{{ route('peliculas.create') }}" method="get">
-            <x-primary-button class="bg-green-700 m-4">Crear una proyección</x-primary-button>
+    <div class="flex justify-center">
+        <form action="{{ route('proyecciones.create') }}" method="get">
+            <x-primary-button class="bg-blue-500 m-4">Crear una proyección</x-primary-button>
         </form>
-    </div> --}}
+    </div>
 
 </x-app-layout>

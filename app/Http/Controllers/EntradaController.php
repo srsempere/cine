@@ -36,7 +36,12 @@ class EntradaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $this->validar($request);
+        Entrada::create($validated);
+        if ($validated) {
+            session()->flash('exito', 'La entrada se ha comprado con éxito.');
+        }
+        return redirect()->route('entradas.index');
     }
 
     /**
@@ -74,7 +79,7 @@ class EntradaController extends Controller
     private function validar(REQUEST $request)
     {
         return $request->validate([
-            'titulo' => 'required|string|max:50',
+            'proyeccion_id' => 'required|int|exists:proyeccions,id',
         ]);
     }
 }

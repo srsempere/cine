@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Entrada;
+use App\Models\Pelicula;
 use App\Models\Proyeccion;
+use App\Models\Sala;
 use Illuminate\Http\Request;
 
 class ProyeccionController extends Controller
@@ -23,7 +25,10 @@ class ProyeccionController extends Controller
      */
     public function create()
     {
-        return view('proyecciones.create');
+        return view('proyecciones.create', [
+            'peliculas' => Pelicula::all(),
+            'salas' => Sala::all(),
+        ]);
     }
 
     /**
