@@ -10,10 +10,22 @@ class Pelicula extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['titulo'];
-
     public function proyecciones(): HasMany
     {
         return $this->hasMany(Proyeccion::class);
+    }
+
+    public function entradas(): HasMany
+    {
+        return $this->through('proyecciones')->has('entradas');
+    }
+
+    public function cantidadEntradas(): int
+    {
+        $total = 0;
+        foreach ($this->proyecciones as $proyeccion) {
+            $total += $proyeccion->entradas->count();
+        }
+        return $total;
     }
 }

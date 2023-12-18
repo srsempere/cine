@@ -10,8 +10,6 @@ class Entrada extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['proyeccion_id'];
-
     public function proyeccion():BelongsTo
     {
         return $this->belongsTo(Proyeccion::class);
