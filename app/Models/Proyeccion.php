@@ -11,7 +11,7 @@ class Proyeccion extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['pelicula_id', 'fecha_hora', 'sala_id'];
+    protected $table = 'proyecciones';
 
     public function pelicula(): BelongsTo
     {
