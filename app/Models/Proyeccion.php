@@ -13,6 +13,8 @@ class Proyeccion extends Model
 
     protected $table = 'proyecciones';
 
+    protected $fillable = ['pelicula_id', 'fecha_hora', 'sala_id'];
+
     public function pelicula(): BelongsTo
     {
         return $this->belongsTo(Pelicula::class);

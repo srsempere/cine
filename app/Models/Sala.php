@@ -11,6 +11,9 @@ class Sala extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['numero'];
+
+
     public function proyecciones(): HasMany
     {
         return $this->hasMany(Proyeccion::class);

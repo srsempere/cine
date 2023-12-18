@@ -79,7 +79,7 @@ class EntradaController extends Controller
     private function validar(REQUEST $request)
     {
         return $request->validate([
-            'proyeccion_id' => 'required|int|exists:proyeccions,id',
+            'proyeccion_id' => 'required|int|exists:proyecciones,id',
         ]);
     }
 }

@@ -45,6 +45,7 @@ class PeliculaController extends Controller
     {
         return view('peliculas.show', [
             'pelicula' => $pelicula,
+            'total' => $pelicula->cantidadEntradas(),
         ]);
     }
 
