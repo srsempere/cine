@@ -16,22 +16,29 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($entradas as $entrada)
+                @if ($entradas->isEmpty())
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            {{ $entrada->proyeccion->pelicula->titulo }}
+                        <td class="px-6 py-4 font-medium text-red-600 dark:text-white" colspan="3">
+                            No existe ninguna entrada actualmente.
                         </td>
-                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            {{ $entrada->proyeccion->sala->numero }}
-                        </td>
-                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
-                            <a href="{{ route('entradas.index') }}">
-                                <x-primary-button>
-                                    Ver más detalles
-                                </x-primary-button>
-                            </a>
-                        </td>
-                        {{-- <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                    </tr>
+                @else
+                    @foreach ($entradas as $entrada)
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                {{ $entrada->proyeccion->pelicula->titulo }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                {{ $entrada->proyeccion->sala->numero }}
+                            </td>
+                            <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
+                                <a href="{{ route('entradas.index') }}">
+                                    <x-primary-button>
+                                        Ver más detalles
+                                    </x-primary-button>
+                                </a>
+                            </td>
+                            {{-- <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">
                             <form method="post" action="{{ route('peliculas.destroy', ['pelicula' => $pelicula]) }}">
                                 @csrf
                                 @method('DELETE')
@@ -47,8 +54,9 @@
                                 </x-primary-button>
                             </a>
                         </td> --}}
-                    </tr>
-                @endforeach
+                        </tr>
+                    @endforeach
+                @endif
             </tbody>
         </table>
     </div>
