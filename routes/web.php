@@ -4,6 +4,7 @@ use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProyeccionController;
+use App\Http\Controllers\SalaController;
 use App\Models\Pelicula;
 use Illuminate\Support\Facades\Route;
 
@@ -42,5 +43,9 @@ Route::resource('entradas', EntradaController::class);
 
 // PROYECCIONES
 Route::resource('proyecciones', ProyeccionController::class);
+
+// SALAS
+Route::resource('salas', SalaController::class);
+
 
 require __DIR__.'/auth.php';

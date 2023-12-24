@@ -12,7 +12,9 @@ class SalaController extends Controller
      */
     public function index()
     {
-        //
+        return view('salas.index', [
+            'salas' => Sala::all(),
+        ]);
     }
 
     /**
